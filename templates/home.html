@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if get_flashed_messages() %}
+<div class="flash_mgs">
+    <ul>
+{% for msg in get_flashed_messages()%}
+
+    <li>{{msg}}</li>
+
+{% endfor%}
+</ul>
+</div>
+{% endif%}
+<div class="out_container">
+    <div class="form_header_container">
+        <div class="header_container">
+            <h1>Which material will we recycle?</h1>
+        </div>
+    
+
+        <div class="form_container">
+            <form id="form" class="form" method="post">
+                <div class="search_bar">
+                    <label for="item"><h2>Product:</h2></label>
+                    <input type="text" name="item">
+                </div>
+                <div class="radio_container">
+                    <div class="cont_header">
+                        <h2>Is there residue?</h2>
+                    </div>
+                    <div class="radio">
+                        <label for="option">Yes</label>
+                        <input type="radio" name="option" value="yes">
+                    </div>
+                    <div class="radio">
+                        <label for="option">No</label>
+                        <input type="radio" name="option" value="no">
+                    </div>
+                </div>
+
+                <div class="btn_container">
+                    <h2>Add packaging</h2>
+                    <button onclick="addInput()" type="button"><i class='fa fa-plus-circle'></i></button>
+                </div>
+                <div id="packaging" class="packaging">
+                </div>
+                <div class="submit_container">
+                    <input type="submit" name="search">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="recycling_img_container">
+        <div class="img_container">
+            <img src="../static/images/lets_recycle.png" alt="recycling">
+        </div>
+    </div>
+</div>    
+<script>
+    let count = 0
+    let addInput = () => {
+        function setAttributes(el, attrs) {
+            for(var key in attrs) {
+                el.setAttribute(key, attrs[key]);
+            }
+            }
+
+        count +=1
+        let packaging = document.getElementById("packaging")
+        let new_div = document.createElement("div")
+        let label = document.createElement("label")
+        label.innerHTML = "Packaging " + count
+        let input = document.createElement("input")
+
+        setAttributes(input,{"type":"text", "name": "pq"})
+
+        
+
+        new_div.append(label)
+        new_div.append(input)
+        packaging.append(new_div)
+    
+    }
+
+</script>
+{% endblock %}

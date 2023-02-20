@@ -1,0 +1,50 @@
+<html>
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- We use url_for to link a stylesheet named `style.css` within the folder 'static' here. -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bayon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bevan">
+
+    <!-- Use Jinja to put a title here. -->
+    <title>{{title}}</title>
+</head>
+<body>
+    <nav>
+        {% if "user" in session %}
+        <ul class="nav_bar">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="/admin">Admin</a></li>
+            <li><a href="/">Welcome Page</a></li>
+        </ul>
+        {% else %}
+        <ul class="nav_bar">
+            <li><a href="/login">Log in</a></li>
+            <li><a href="/home">Home</a></li>
+        </ul>
+        {% endif %}
+    </nav>
+    {% block content %}
+    {% endblock %}
+    <div class="footer">
+        <div class="wraper">
+            <p>This application was inspired by Ana Xavier</p>
+        </div>
+        <div class="wraper">
+            <p>Developed by Samuel L Finnegan</p>
+            <a href="https://www.samuel-lino-finnegan-portfolio.com/">My portfolio</a>
+        </div>
+        <div class="wraper">
+            <p>designed by Larissa Arnold</p>
+            <a href="https://larissaarnold.com/">My portfolio</a>
+        </div>
+       
+    </div>
+    <script src="https://kit.fontawesome.com/605117c03a.js" crossorigin="anonymous"></script>
+</body>
+</html>

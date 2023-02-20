@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if get_flashed_messages() %}
+<div class="flash_mgs">
+    <ul>
+{% for msg in get_flashed_messages()%}
+
+    <li>{{msg}}</li>
+
+{% endfor%}
+</ul>
+</div>
+{% endif%}
+<div class="product_container">
+    <h1>For : {{prod.name}} </h1>
+
+    <h1>Bin : {{bin}}</h1>
+    <div class="bin_container">
+        <img src="../static/images/product_bin.png" alt="recycling bin">
+    </div>
+    
+</div>
+
+{% endblock %}

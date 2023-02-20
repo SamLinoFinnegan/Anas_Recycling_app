@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if get_flashed_messages() %}
+<div class="flash_mgs">
+    <ul>
+{% for msg in get_flashed_messages()%}
+
+    <li>{{msg}}</li>
+
+{% endfor%}
+</ul>
+</div>
+{% endif%}
+<div class="login_form_container">
+    <form class="form" method="post">
+        <label for="product">Product: </label>
+        <input type="text" name="product">
+        <label for="description">Description: </label>
+        <input type="text" name="description">
+        <label for="packaging">Packaging: </label>
+        <input type="text" name="packaging">
+        <input type="submit" name="add_product">
+    </form>
+</div>
+
+{% endblock %}

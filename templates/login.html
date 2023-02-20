@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if get_flashed_messages() %}
+<div class="flash_mgs">
+    <ul>
+{% for msg in get_flashed_messages()%}
+
+    <li>{{msg}}</li>
+
+{% endfor%}
+</ul>
+</div>
+{% endif%}
+<div class="login_form_container">
+    <form class="form" method="post">
+        <label for="user_name">Email</label>
+        <br/>
+        <input type="email" name="user_name">
+        <br/>
+
+        <label for="user_name">Password</label>
+        <br/>
+
+        <input type="password" name="user_password">
+        <br/>
+
+        <input type="submit" value="Log in">
+    </form>
+</div>
+
+
+</div>
+    
+{% endblock %}
